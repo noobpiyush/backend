@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 4000
 
 app.use(cors({
     credentials: true,
-    origin: "https://65be20c633787d7de1ef33bc--calm-tartufo-e6cc5d.netlify.app",
+    origin: "https://65be20c633787d7de1ef33bc--calm-tartufo-e6cc5d.netlify.app"
 }))
 app.use(express.json());
 // const _dirname = path.dirname("");
