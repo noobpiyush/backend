@@ -18,12 +18,12 @@ const PORT = process.env.PORT || 4000
 
 app.use(cors({
     credentials: true,
-    origin: "*",
+    origin: "https://65be20c633787d7de1ef33bc--calm-tartufo-e6cc5d.netlify.app",
 }))
 app.use(express.json());
-const _dirname = path.dirname("");
-const buildpath = path.join(__dirname,"../client/dist");
-app.use(express.static(buildpath))
+// const _dirname = path.dirname("");
+// const buildpath = path.join(__dirname,"../client/dist");
+// app.use(express.static(buildpath))
 app.use(cookieParser());
 app.use("/uploads",express.static(__dirname+ "/uploads"));
 
