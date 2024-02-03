@@ -18,8 +18,11 @@ const PORT = process.env.PORT || 4000
 
 app.use(cors({
     credentials: true,
-    origin: "http://express-blogs-by-piyush.s3-website.ap-south-1.amazonaws.com"
-}))
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 204,
+}));
 app.use(express.json());
 // const _dirname = path.dirname("");
 // const buildpath = path.join(__dirname,"../client/dist");
@@ -99,6 +102,10 @@ app.post("/logout", function (req, res) {
 })
 
 app.post("/post", uploadMidddleWare.single("file"), async function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     const { originalname, path } = req.file;
     const parts = originalname.split(".");
     const ext = parts[parts.length - 1];
